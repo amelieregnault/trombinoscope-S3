@@ -1,0 +1,22 @@
+# Projet Trombinoscope
+
+Ce projet sert en cours pour apprendre le développement Web avec PHP (Cours MMI).
+
+## Lancement du projet
+
+1. Démarrer Docker
+2. Créer les conteneurs
+```bash
+docker-compose up --build -d
+```
+3. Pour le premier lancement, importer le script SQL pour charger les données dans la base de données. (Le script est sous EPREL)
+
+## Accès
+
+### Accès au trombinoscope 
+localhost:8080/
+
+### Accès à PhpMyAdmin (Base de données)
+localhost:8081
+login -> user
+mdp -> userpassword
