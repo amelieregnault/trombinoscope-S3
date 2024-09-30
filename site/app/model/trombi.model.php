@@ -9,7 +9,7 @@ function getStudent(PDO $pdo, int $numStudent): array
 
     if (!$student = $stmt->fetch()) {
         $_SESSION['message'] = "L'étudiant n'existe pas !";
-        header('Location: trombinoscope.php');
+        header('Location: index.php');
         exit;
     }
     return $student;

@@ -5,7 +5,7 @@
         <?php if ($numPage === $i) : ?>
           <?= $i ?>
         <?php else : ?>
-          <a href="trombinoscope.php?page=<?= $i ?>"><?= $i ?></a>
+          <a href="index.php?page=trombinoscope&num=<?= $i ?>"><?= $i ?></a>
         <?php endif ?>
       </li>
     <?php endfor ?>

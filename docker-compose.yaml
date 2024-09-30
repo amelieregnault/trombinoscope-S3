@@ -12,6 +12,7 @@ services:
       - mynetwork
 
   mysql:
+    #platform: linux/x86_64  # Pour les macs
     image: mysql:9.0
     container_name: mysql_db
     environment:

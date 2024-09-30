@@ -5,7 +5,7 @@ session_start();
 
 if (empty($_GET['num']) || !ctype_digit($_GET['num']) || $_GET['num'] < 1) {
     $_SESSION['message'] = "L'identifiant n'est pas valide.";
-    header('Location: trombinoscope.php');
+    header('Location: index.php');
     exit;
 }
 

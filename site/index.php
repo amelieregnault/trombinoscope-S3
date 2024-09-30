@@ -16,6 +16,7 @@ switch ($page) {
         break;
     case 'erreur':
         genererPageErreur();
+        break;
     default:
         genererPageErreur('Page non trouvée');
 }
