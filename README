@@ -18,5 +18,9 @@ localhost:8080/
 
 ### Accès à PhpMyAdmin (Base de données)
 localhost:8081
+Pour l'administrateur
+login -> root
+mdp -> rootpassword
+Pour l'utilisateur
 login -> user
 mdp -> userpassword
