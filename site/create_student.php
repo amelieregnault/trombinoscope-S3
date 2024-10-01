@@ -52,7 +52,7 @@ try {
     exit;
 }
 
-header('Location: fiche.php?num='.$id);
+header('Location: index.php?page=fiche&num='.$id);
 exit();
 
 

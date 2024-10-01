@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 require_once 'app/model/connexionBDD.php';
@@ -13,6 +13,10 @@ switch ($page) {
     case 'trombinoscope':
         require_once 'app/controller/trombi.controller.php';
         genererPageTrombinoscope();
+        break;
+    case 'fiche':
+        require_once 'app/controller/trombi.controller.php';
+        genererPageFiche();
         break;
     case 'erreur':
         genererPageErreur();
