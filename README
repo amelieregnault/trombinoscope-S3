@@ -9,12 +9,15 @@ Ce projet sert en cours pour apprendre le développement Web avec PHP (Cours MMI
 ```bash
 docker-compose up --build -d
 ```
-3. Pour le premier lancement, importer le script SQL pour charger les données dans la base de données. (Le script est sous EPREL)
+3. Pour le premier lancement, importer les scripts SQL (students, user) pour charger les données dans la base de données. (Le script est sous EPREL)
 
 ## Accès
 
 ### Accès au trombinoscope 
 localhost:8080/
+Pour accéder à la zone administration du site:
+login -> user
+mdp -> userpassword
 
 ### Accès à PhpMyAdmin (Base de données)
 localhost:8081
