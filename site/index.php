@@ -1,8 +1,12 @@
 <?php
+
+use app\controller\ErrorController;
+use app\controller\Router;
+use app\controller\TrombiController;
+
 session_start();
 
-require_once 'app/model/connexionBDD.php';
-require_once 'app/controller/controller.php';
+require_once 'autoload.php';
 
 $router = new Router();
 $router->addRoute('trombinoscope', new TrombiController, 'genererPageTrombinoscope');

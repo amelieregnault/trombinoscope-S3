@@ -1,5 +1,10 @@
 <?php
 
+namespace app\model;
+
+use PDO;
+use PDOException;
+
 /**
  * Classe pour gérer la connexion à la base de données.
  * C'est une classe suivant le design pattern "singleton".
@@ -28,6 +33,9 @@ class Database
 
     public static function getConnexion(): PDO
     {
-        return self::$pdo??self::connexion();
+        if (!self::$pdo) {
+            self::connexion();
+        }
+        return self::$pdo;
     }
 }
