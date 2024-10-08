@@ -14,7 +14,7 @@
 
 <?php foreach ($students as $aStudent): ?>
     <div class="carte">
-      <a href="fiche.php?num=<?= $aStudent['id'] ?>">
+      <a href="index.php?page=fiche&num=<?= $aStudent['id'] ?>">
         <?php 
           if (isset($aStudent['photo'])) {
             $photo = 'groupe' . $aStudent['group'] . '/small/' . $aStudent['photo'];
