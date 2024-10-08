@@ -14,13 +14,13 @@ docker-compose up --build -d
 ## Accès
 
 ### Accès au trombinoscope 
-localhost:8080/
+localhost:8084/
 Pour accéder à la zone administration du site:
 login -> user
 mdp -> userpassword
 
 ### Accès à PhpMyAdmin (Base de données)
-localhost:8081
+localhost:8085
 Pour l'administrateur
 login -> root
 mdp -> rootpassword

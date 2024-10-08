@@ -3,9 +3,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: apache_server
+    container_name: apache_server_objet
     ports:
-      - "8080:80"
+      - "8084:80"
     volumes:
       - ./site:/var/www/html
     networks:
@@ -14,25 +14,25 @@ services:
   mysql:
     #platform: linux/x86_64  # Pour les macs
     image: mysql:9.0
-    container_name: mysql_db
+    container_name: mysql_db_objet
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: trombinoscope
       MYSQL_USER: user
       MYSQL_PASSWORD: userpassword
     volumes:
-      - db_data:/var/lib/mysql
+      - db_objet:/var/lib/mysql
     networks:
       - mynetwork
 
   phpmyadmin:
     image: phpmyadmin:latest
-    container_name: phpmyadmin
+    container_name: phpmyadmin_objet
     environment:
       PMA_HOST: mysql
       MYSQL_ROOT_PASSWORD: rootpassword
     ports:
-      - "8081:80"
+      - "8085:80"
     depends_on:
       - mysql
     networks:
@@ -43,4 +43,4 @@ networks:
     driver: bridge
 
 volumes:
-  db_data:
+  db_objet:
