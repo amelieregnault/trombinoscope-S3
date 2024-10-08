@@ -1,4 +1,4 @@
-<form action="submit_login.php" method="post">
+<form action="index.php?page=submit-login" method="post">
     <div>
         <label for="login">Login</label>
         <input type="text" name="login" id="login">
