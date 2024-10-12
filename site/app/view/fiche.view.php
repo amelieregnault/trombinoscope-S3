@@ -2,21 +2,21 @@
     <div class="gauche">
         <figure class="big_photo">
             <?php
-            if (isset($student['photo'])) {
-                $photo = 'groupe' . $student['group'] . '/big/' . $student['photo'];
+            if ($student->hasPhoto()) {
+                $photo = 'groupe' . $student->getGroupe() . '/big/' . $student->getPhoto();
             } else {
                 $photo = 'defaut.png';
             }
             ?>
-            <img src="public/images/<?= $photo ?>" alt="photo de <?= $student['firstname'] ?> <?= $student['lastname'] ?>">
+            <img src="public/images/<?= $photo ?>" alt="photo de <?= $student->getPrenom ?> <?= $student->getNom() ?>">
         </figure>
     </div>
     <div class="detail">
-        <p class="nom"><?= $student['firstname'] ?> <span><?= $student['lastname'] ?></span></p>
-        <p class="ddn"><?= $student['birthdate'] ?></p>
-        <p class="groupe">groupe <span><?= $student['group'] ?></span></p>
+        <p class="nom"><?= $student->getPrenom() ?> <span><?= $student->getNom() ?></span></p>
+        <p class="ddn"><?= $student->getDateNaissance() ?></p>
+        <p class="groupe">groupe <span><?= $student->getGroupe() ?></span></p>
         <p>
-            <?= $student['description'] ?>
+            <?= $student->getDescription() ?>
         </p>
     </div>
 </div>
