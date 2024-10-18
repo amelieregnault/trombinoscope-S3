@@ -1,5 +1,7 @@
 <?php
 
+namespace app\model;
+
 class Student
 {
     private int $id;
@@ -8,7 +10,7 @@ class Student
     private string $groupe;
     private string $dateNaissance;
     private string $description;
-    private string $photo;
+    private ?string $photo;
 
     // Méthode    
 
@@ -19,12 +21,12 @@ class Student
 
     public function hydrate(array $data)
     {
-        $this->id = $data['id']??null;
-        $this->prenom = $data['firstname']??null;
-        $this->nom = $data['lastname']??null;
-        $this->dateNaissance = $data['birthdate']??null;
-        $this->groupe = $data['group']??null;
-        $this->description = $data['description']??null;
+        $this->id = $data['id'];
+        $this->prenom = $data['firstname'];
+        $this->nom = $data['lastname'];
+        $this->dateNaissance = $data['birthdate'];
+        $this->groupe = $data['group'];
+        $this->description = $data['description'];
         $this->photo = $data['photo']??null;
     }
 

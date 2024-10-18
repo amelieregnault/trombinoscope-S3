@@ -3,7 +3,7 @@
 namespace app\controller;
 
 
-class Router
+class Router extends Controller
 {
 
     private array $routes;
@@ -15,25 +15,20 @@ class Router
 
     public function addRoute(string $name, Controller $controller, string $method)
     {
-        $this->routes[$name] = ['controller' => $controller, 'method' => $method];
+        $this->routes[$name] = new Route($controller, $method);
     }
 
     public function callRoute(string $name)
     {
         if (!key_exists($name, $this->routes)) {
-            $errorController = new ErrorController();
-            $errorController->genererPageErreur('Page inconnue');
-            exit();
+            $this->redirectToPageWithError('index.php?page=erreur', "Page inconnue");
         }
-
+        
         $route = $this->routes[$name];
-        $controller = $route['controller'];
-        $method = $route['method'];
-        if (method_exists($controller, $method) && is_callable([$controller, $method])) {
-            $controller->$method();
+        if ($route->isAvailable()) {
+            $route->execute();
         } else {
-            $errorController = new ErrorController();
-            $errorController->genererPageErreur('Méthode non existante');
+            $this->redirectToPageWithError('index.php?page=erreur', "Méthode non existante");
         }
     }
 }

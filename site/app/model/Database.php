@@ -7,7 +7,7 @@ use PDOException;
 
 /**
  * Classe pour gérer la connexion à la base de données.
- * C'est une classe suivant le design pattern "singleton".
+ * C'est une classe suivant le design pattern "singleton". (presque)
  * Utiliser la méthode de classe getConnexion pour obtenir une connexion 
  * à la base de données.
  */

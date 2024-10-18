@@ -1,5 +1,9 @@
 <?php
 
+namespace app\controller;
+
+use app\model\Trombinoscope;
+
 class TrombiController extends Controller
 {
 
@@ -8,24 +12,45 @@ class TrombiController extends Controller
      *
      * @return void
      */ 
-    public function genererPageTrombinoscope()
-    {
-        $db = getDB();
-        $trombinoscope = new Trombinoscope();
+    // public function genererPageTrombinoscope()
+    // {
+    //     $db = getDB();
+    //     $trombinoscope = new Trombinoscope();
 
-        $nbPages = $trombinoscope->getNbPages($db);
-        $numPage = $this->getNumPage($nbPages);
+    //     $nbPages = $trombinoscope->getNbPages($db);
+    //     $numPage = $this->getNumPage($nbPages);
+    //     $data = [
+    //         'students' => $model->getStudentsByPage($db, $numPage),
+    //         'nbPages' => $nbPages,
+    //         'numPage' => $numPage,
+    //         'page_title' => 'Trombinoscope',
+    //         'view' => 'app/view/trombi.view.php',
+    //         'layout' => 'app/view/common/layout.php',
+    //     ];
+
+    //     $this->genererPage($data);
+    // }
+
+
+    public function genererPageFiche()
+    {
+        if (!isset($_GET['num']) || !ctype_digit($_GET['num']) || $_GET['num'] <= 0) {
+            $this->redirectToPageWithError('index.php', "Numéro d'étudiant invalide");
+        }
+
+        $trombinoscope = new Trombinoscope();
+        $student = $trombinoscope->getStudent($_GET['num']);
+
         $data = [
-            'students' => $model->getStudentsByPage($db, $numPage),
-            'nbPages' => $nbPages,
-            'numPage' => $numPage,
-            'page_title' => 'Trombinoscope',
-            'view' => 'app/view/trombi.view.php',
+            'student' => $student,
+            'page_title' => "Fiche de " . $student->getPrenom() . " " . $student->getNom(),
+            'view' => 'app/view/fiche.view.php',
             'layout' => 'app/view/common/layout.php',
         ];
 
         $this->genererPage($data);
     }
+
 
     /**
      * fonction récupérant le numéro de la page à afficher.

@@ -9,8 +9,10 @@ session_start();
 require_once 'autoload.php';
 
 $router = new Router();
-$router->addRoute('trombinoscope', new TrombiController, 'genererPageTrombinoscope');
-$router->addRoute('erreur', new ErrorController, 'genererPageErreur');
+$trombiController = new TrombiController();
+//$router->addRoute('trombinoscope', $trombiController, 'genererPageTrombinoscope');
+$router->addRoute('fiche', $trombiController, 'genererPageFiche');
+$router->addRoute('erreur', new ErrorController(), 'genererPageErreur');
 
 $page = 'trombinoscope';
 if (isset($_GET['page'])) {

@@ -2,7 +2,7 @@
 
 namespace app\controller;
 
-class Controller
+abstract class Controller
 {
 
     /**
@@ -31,6 +31,11 @@ class Controller
         require_once $layout;
     }
 
-
+    public function redirectToPageWithError(string $url, string $message)
+    {
+        $_SESSION['message'] = $message;
+        header('Location: ' . $url);
+        exit;
+    }
     
 }
