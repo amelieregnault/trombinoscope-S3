@@ -12,24 +12,23 @@ class TrombiController extends Controller
      *
      * @return void
      */ 
-    // public function genererPageTrombinoscope()
-    // {
-    //     $db = getDB();
-    //     $trombinoscope = new Trombinoscope();
+    public function genererPageTrombinoscope()
+    {
+        $trombinoscope = new Trombinoscope();
 
-    //     $nbPages = $trombinoscope->getNbPages($db);
-    //     $numPage = $this->getNumPage($nbPages);
-    //     $data = [
-    //         'students' => $model->getStudentsByPage($db, $numPage),
-    //         'nbPages' => $nbPages,
-    //         'numPage' => $numPage,
-    //         'page_title' => 'Trombinoscope',
-    //         'view' => 'app/view/trombi.view.php',
-    //         'layout' => 'app/view/common/layout.php',
-    //     ];
+        $nbPages = $trombinoscope->getNbPages();
+        $numPage = $this->getNumPage($nbPages);
+        $data = [
+            'students' => $trombinoscope->getStudentsByPage($numPage),
+            'nbPages' => $nbPages,
+            'numPage' => $numPage,
+            'page_title' => 'Trombinoscope',
+            'view' => 'app/view/trombi.view.php',
+            'layout' => 'app/view/common/layout.php',
+        ];
 
-    //     $this->genererPage($data);
-    // }
+        $this->genererPage($data);
+    }
 
 
     public function genererPageFiche()
