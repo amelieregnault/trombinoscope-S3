@@ -10,7 +10,7 @@ require_once 'autoload.php';
 
 $router = new Router();
 $trombiController = new TrombiController();
-//$router->addRoute('trombinoscope', $trombiController, 'genererPageTrombinoscope');
+$router->addRoute('trombinoscope', $trombiController, 'genererPageTrombinoscope');
 $router->addRoute('fiche', $trombiController, 'genererPageFiche');
 $router->addRoute('erreur', new ErrorController(), 'genererPageErreur');
 
