@@ -12,25 +12,25 @@
   </ul>
 <?php endif ?>
 
-<?php foreach ($students as $aStudent): ?>
+<?php foreach ($students as $student): ?>
     <div class="carte">
-      <a href="index.php?page=fiche&num=<?= $aStudent['id'] ?>">
+      <a href="index.php?page=fiche&num=<?= $student->getId() ?>">
         <?php 
-          if (isset($aStudent['photo'])) {
-            $photo = 'groupe' . $aStudent['group'] . '/small/' . $aStudent['photo'];
+          if ($student->hasPhoto()) {
+            $photo = 'groupe' . $student->getGroupe() . '/small/' . $student->getPhoto();
           } else {
             $photo = 'defaut.png';
           }
         ?>
-        <figure class="photo"><img src="public/images/<?= $photo ?>" alt="photo de <?= $aStudent['firstname'] ?> <?= $aStudent['lastname'] ?>">
+        <figure class="photo"><img src="public/images/<?= $photo ?>" alt="photo de <?= $student->getPrenom() ?> <?= $student->getNom() ?>">
         </figure>
         <div class="infos">
           <p class="nom">
-            <?= $aStudent['firstname'] ?> 
-            <span><?= $aStudent['lastname'] ?></span>
+            <?= $student->getPrenom() ?> 
+            <span><?= $student->getNom() ?></span>
           </p>
-          <p class="ddn"><?= $aStudent['birthdate'] ?></p>
-          <p class="groupe">groupe <span><?= $aStudent['group'] ?></span></p>
+          <p class="ddn"><?= $student->getDateNaissance() ?></p>
+          <p class="groupe">groupe <span><?= $student->getGroupe() ?></span></p>
         </div>
       </a>
     </div>
