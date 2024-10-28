@@ -6,7 +6,7 @@ use app\model\User;
 
 class AdminController extends Controller
 {
-    public function generePageLogin()
+    public function genererPageLogin()
     {
         $data = [
             'page_title' => "Trombinoscope - login",
