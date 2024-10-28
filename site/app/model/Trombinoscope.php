@@ -2,11 +2,13 @@
 
 namespace app\model;
 
+use Exception;
+
 /**
  * La méthode utilisée n'est pas optimale, mais ce n'est pas grave
  * car il n'y a que 100 étudiants dans la base de données.
  */
-class Trombinoscope extends Model
+class Trombinoscope
 {
 
     // Attributs
@@ -35,7 +37,7 @@ class Trombinoscope extends Model
     public function getStudent(int $numStudent): Student
     {
         if (!key_exists($numStudent, $this->students)) {
-            $this->redirectToPageWithError('index.php', "L'étudiant n'existe pas");
+            throw new Exception("L'étudiant n'existe pas");
         }
         return $this->students[$numStudent];
     }

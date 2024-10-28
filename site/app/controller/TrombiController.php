@@ -3,6 +3,7 @@
 namespace app\controller;
 
 use app\model\Trombinoscope;
+use Exception;
 
 class TrombiController extends Controller
 {
@@ -43,7 +44,11 @@ class TrombiController extends Controller
         }
 
         $trombinoscope = new Trombinoscope();
-        $student = $trombinoscope->getStudent($_GET['num']);
+        try {
+            $student = $trombinoscope->getStudent($_GET['num']);
+        } catch (Exception $e) {
+            $this->redirectToPageWithError('index.php', $e->getMessage());
+        }
 
         $data = [
             'student' => $student,

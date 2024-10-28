@@ -4,7 +4,7 @@ namespace app\model;
 
 use Exception;
 
-class User extends Model
+class User
 {
     private string $role;
 

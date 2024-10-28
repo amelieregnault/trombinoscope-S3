@@ -2,6 +2,8 @@
 
 namespace app\model;
 
+use PDOException;
+
 class Student
 {
     private int $id;
@@ -27,7 +29,7 @@ class Student
         $this->dateNaissance = $data['birthdate'];
         $this->groupe = $data['group'];
         $this->description = $data['description'];
-        $this->photo = $data['photo']??null;
+        $this->photo = $data['photo'] ?? null;
     }
 
 
@@ -183,5 +185,32 @@ class Student
         $this->photo = $photo;
 
         return $this;
+    }
+
+    public static function create(
+        string $firstname,
+        string $lastname,
+        string $birthdate,
+        string $group,
+        string $description,
+        string $photo = null,
+    ): int {
+        try {
+            $pdo = Database::getConnexion();
+            $sql = "INSERT INTO students " . 
+             "(`firstname`, `lastname`, `birthdate`, `group`, `photo`, `description`)  VALUES " . 
+             "(:firstname, :lastname, :birthdate, :group, :photo, :description)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':firstname', $firstname);
+            $stmt->bindParam(':lastname', $lastname);
+            $stmt->bindParam(':birthdate', $birthdate);
+            $stmt->bindParam(':group', $group);
+            $stmt->bindParam(':photo', $photo);
+            $stmt->bindParam(':description', $description);
+            $stmt->execute();
+            return $pdo->lastInsertId();
+        } catch (PDOException $e) {
+            throw $e;
+        }
     }
 }
