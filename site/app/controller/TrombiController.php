@@ -31,6 +31,11 @@ class TrombiController extends Controller
     }
 
 
+    /**
+     * Contrôleur pour générer une fiche d'étudiant accessible depuis le trombinoscope
+     *
+     * @return void
+     */
     public function genererPageFiche()
     {
         if (!isset($_GET['num']) || !ctype_digit($_GET['num']) || $_GET['num'] <= 0) {
